@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Bar Graphs with Bootstrap and Chart.js</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Multiple Bar Graphs Example</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="myBarChart1"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="myBarChart2"></canvas>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <canvas id="myBarChart3"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="myBarChart4"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to render the charts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx1 = document.getElementById('myBarChart1').getContext('2d');
+            var ctx2 = document.getElementById('myBarChart2').getContext('2d');
+            var ctx3 = document.getElementById('myBarChart3').getContext('2d');
+            var ctx4 = document.getElementById('myBarChart4').getContext('2d');
+
+            var data = {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [65, 59, 80, 81, 56, 55],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            };
+
+            var options = {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            };
+
+            var myBarChart1 = new Chart(ctx1, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+
+            var myBarChart2 = new Chart(ctx2, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+
+            var myBarChart3 = new Chart(ctx3, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+
+            var myBarChart4 = new Chart(ctx4, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+        });
+    </script>
+</body>
+</html>
